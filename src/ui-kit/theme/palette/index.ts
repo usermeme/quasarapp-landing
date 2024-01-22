@@ -1,0 +1,1 @@
+export { themePalette } from "./palette";

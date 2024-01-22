@@ -1,3 +1,63 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals"],
+  "plugins": ["simple-import-sort", "sort-destructure-keys", "sort-keys-fix"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "simple-import-sort/exports": "error",
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              ["^react", "^@?\\w"],
+              ["^\\u0000"],
+              ["^@/types"],
+              ["^@@/"],
+              ["^@/features"],
+              ["^@/services"],
+              ["^@/components"],
+              ["^@/ui-kit"],
+              ["^@/hooks"],
+              ["^@/utils"],
+              ["^@/constants"],
+              ["^"],
+              ["^\\."],
+              ["^.module.scss"]
+            ]
+          }
+        ],
+        "sort-destructure-keys/sort-destructure-keys": "error",
+        "sort-keys-fix/sort-keys-fix": "error"
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      },
+      "plugins": ["typescript-sort-keys", "@typescript-eslint"],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:tailwindcss/recommended"
+      ],
+      "rules": {
+        "require-await": "off",
+        "@typescript-eslint/no-empty-interface": 0,
+        "@typescript-eslint/no-use-before-define": 0,
+        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/camelcase": 0,
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/interface-name-prefix": 0,
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "@typescript-eslint/ban-ts-comment": 1,
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/no-unnecessary-type-constraint": 1,
+        "@typescript-eslint/no-namespace": 0,
+        "@typescript-eslint/no-explicit-any": 1
+      }
+    }
+  ]
 }
