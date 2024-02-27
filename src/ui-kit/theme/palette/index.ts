@@ -1,1 +1,1 @@
-export { themePalette } from "./palette";
+export { DARK_PALETTE,LIGHT_PALETTE } from "./palette";

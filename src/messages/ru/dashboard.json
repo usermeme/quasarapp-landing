@@ -1,3 +1,20 @@
 {
-  "quasar_app_group": "QuasarApp Group"
+  "dashboard_page_headline": "QuasarApp Group",
+  "order_project_section_headline": "Заказать проект",
+  "order_project_section_paragraph_1": "Мы всегда рады помочь вам воплотить ваши лучшие и самые фантастические идеи.",
+  "order_project_section_paragraph_2": "Если у вас есть идея для приложения, вы можете оставить запрос на создание проекта с нами на GitHub.",
+  "order_project_section_paragraph_3": "Все, что от вас требуется, это подробное описание того, что нужно сделать. Далее, наши специалисты определят, когда начнется работа над проектом и сколько ресурсов будет выделено на проект.",
+  "order_project_section_paragraph_4": "Количество ресурсов, выделенных на разработку, зависит от того, сколько денежных пожертвований получит этот проект.",
+  "order_project_section_paragraph_5": "Вы также можете заказать частный проект исключительно для вас, но такие проекты уже не будут бесплатными.",
+  "quasar_app_group_section_headline": "Группа QuasarApp",
+  "quasar_app_group_section_paragraph_1": "<b>QuasarApp</b> разрабатывает открытые мобильные и настольные приложения.",
+  "quasar_app_group_section_paragraph_2": "Наша компания была создана в 2017 году и имеет опыт разработки приложений и игр для Android и настольных компьютеров.",
+  "quasar_app_group_section_paragraph_3": "За время нашего существования мы накопили более 40 программных компонентов и готовых решений для самых различных задач.",
+  "quasar_app_group_section_paragraph_4": "Этот подход теперь позволяет нам создавать конечные продукты с впечатляющей скоростью. Если у вас есть идея для приложения, мы всегда вас выслушаем.",
+  "supported_platforms_section_headline": "Поддерживаемые платформы",
+  "supported_platforms_section_list_description": "На данный момент мы предлагаем поддержку наших решений для следующих платформ:",
+  "supported_platforms_section_list_item_1": "Linux",
+  "supported_platforms_section_list_item_2": "Windows",
+  "supported_platforms_section_list_item_3": "Android",
+  "supported_platforms_section_list_item_4": "Web (Wasm)"
 }

@@ -1,18 +1,7 @@
-import type {
-  ColorScheme,
-  OnColorSchemeChange,
-  OnThemeModeChange,
-  ThemeMode,
-  UsePreferencesReturn,
-} from "../preferences";
-
-export interface ThemeContextProps {
-  preferences: UsePreferencesReturn;
-}
+import { Mode } from "@mui/system/cssVars/useCurrentColorScheme";
 
 export interface ThemeProviderProps {
-  defaultColorScheme: ColorScheme;
-  defaultThemeMode: ThemeMode;
-  onColorSchemeChange: OnColorSchemeChange;
-  onThemeModeChange: OnThemeModeChange;
+  defaultMode: Mode;
 }
+
+export type { Mode };

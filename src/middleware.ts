@@ -3,7 +3,6 @@ import createMiddleware from "next-intl/middleware";
 import {
   DEFUALT_LOCALE,
   localePrefix,
-  pathnames,
   SUPPORTED_LOCALES,
 } from "@/services/internationalization";
 
@@ -14,7 +13,6 @@ export default createMiddleware({
   localePrefix,
   // A list of all locales that are supported
   locales: SUPPORTED_LOCALES,
-  pathnames,
 });
 
 export const config = {
@@ -25,7 +23,9 @@ export const config = {
 
     // Set a cookie to remember the previous locale for
     // all requests that have a locale prefix
-    `/(${SUPPORTED_LOCALES.join("|")})/:path*`,
+    // TODO: use here SUPPORTED_LOCALES after fix the issue
+    // https://github.com/vercel/next.js/issues/56398
+    "/(ru|en)/:path*",
 
     // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`)

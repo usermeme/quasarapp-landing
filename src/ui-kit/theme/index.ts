@@ -1,7 +1,7 @@
+export type { Mode } from "./context";
 export {
-  DEFAULT_COLOR_SHEME,
-  DEFAULT_THEME_MODE,
+  THEME_MODE_COOKIES_KEY,
   ThemeProvider,
-  useTheme,
+  useColorScheme,
 } from "./context";
-export { ColorScheme, ThemeMode } from "./preferences";
+export { font } from "./typography";

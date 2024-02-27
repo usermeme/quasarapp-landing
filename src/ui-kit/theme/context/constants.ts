@@ -1,4 +1,1 @@
-import { ColorScheme, ThemeMode } from "../preferences";
-
-export const DEFAULT_COLOR_SHEME = ColorScheme.LIGHT;
-export const DEFAULT_THEME_MODE = ThemeMode.SYSTEM;
+export const THEME_MODE_COOKIES_KEY = "ui-kit-theme-mode";

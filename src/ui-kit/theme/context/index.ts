@@ -1,3 +1,4 @@
-export { DEFAULT_COLOR_SHEME, DEFAULT_THEME_MODE } from "./constants";
-export { useTheme } from "./Context";
+export type { Mode } from "./@types";
+export { THEME_MODE_COOKIES_KEY } from "./constants";
+export { useColorScheme } from "./hooks";
 export { ThemeProvider } from "./Provider";

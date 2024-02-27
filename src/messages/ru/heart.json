@@ -1,0 +1,18 @@
+{
+  "about_heart_section_action_1": "Больше информации о поддерживаемых базах данных",
+  "about_heart_section_headline": "О QuasarApp Heart",
+  "about_heart_section_list_description": "Характеристики:",
+  "about_heart_section_list_item_1": "Поддержка SSL-сокетов;",
+  "about_heart_section_list_item_2": "Поддержка инициализации баз данных;",
+  "about_heart_section_list_item_3": "Поддержка работы с базами данных;",
+  "about_heart_section_paragraph_1": "<b>QuasarApp Heart</b> - это базовый бэкенд для проектов на C++/Qt. Эта библиотека поддерживает работу с базами данных и легкие сетевые запросы.",
+  "about_heart_section_paragraph_2": "Эта библиотека состоит из двух уровней (уровень AbstractNode и уровень DataBaseNode).",
+  "documentation_section_action_1": "Техническая документация",
+  "documentation_section_headline": "Техническая документация Doxygen",
+  "documentation_section_paragraph_1": "Если вы хотите получить больше информации, пожалуйста, обратитесь к технической документации.",
+  "examples_section_action_1": "Официальная страница на GitHub",
+  "examples_section_headline": "Примеры QuasarApp Heart",
+  "examples_section_paragraph_1": "QuasarApp Heart содержит очень подробные примеры демонстрирующие, как работает библиотека, а также полное описание всех функций в официальной технической документации.",
+  "examples_section_paragraph_2": "Если вы предпочитаете краткий пример использования, вы можете посетить официальную страницу на GitHub.",
+  "heart_page_headline": "QuasarApp Heart"
+}

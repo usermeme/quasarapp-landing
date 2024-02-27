@@ -1,38 +1,33 @@
-import { useMemo } from "react";
-import { CssVarsProvider } from "@mui/material-next";
+"use client";
 
-import { usePreferColorSchemeListener } from "../listeners/prefer-color-scheme-listener";
-import { themePalette } from "../palette";
-import { COLOR_SCHEME_ATTRUBITE_KEY, usePreferences } from "../preferences";
+import {
+  Experimental_CssVarsProvider,
+  experimental_extendTheme,
+} from "@mui/material/styles";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+
+import { DARK_PALETTE, LIGHT_PALETTE } from "../palette";
+import { font } from "../typography";
 import { ThemeProviderProps } from "./@types";
-import { ThemeContext } from "./Context";
+
+const experimentalTheme = experimental_extendTheme({
+  colorSchemes: { dark: DARK_PALETTE, light: LIGHT_PALETTE },
+  cssVarPrefix: "",
+  typography: { fontFamily: font.style.fontFamily },
+});
 
 export const ThemeProvider: FCC<ThemeProviderProps> = ({
   children,
-  defaultColorScheme,
-  defaultThemeMode,
-  onColorSchemeChange,
-  onThemeModeChange,
+  defaultMode = "system",
 }) => {
-  const preferences = usePreferences({
-    defaultColorScheme,
-    defaultThemeMode,
-    onColorSchemeChange,
-    onThemeModeChange,
-  });
-
-  const value = useMemo(() => ({ preferences }), [preferences]);
-
-  usePreferColorSchemeListener(preferences);
-
   return (
-    <ThemeContext.Provider value={value}>
-      <CssVarsProvider
-        theme={themePalette}
-        colorSchemeSelector={COLOR_SCHEME_ATTRUBITE_KEY}
+    <AppRouterCacheProvider options={{ enableCssLayer: false }}>
+      <Experimental_CssVarsProvider
+        theme={experimentalTheme}
+        defaultMode={defaultMode}
       >
         {children}
-      </CssVarsProvider>
-    </ThemeContext.Provider>
+      </Experimental_CssVarsProvider>
+    </AppRouterCacheProvider>
   );
 };

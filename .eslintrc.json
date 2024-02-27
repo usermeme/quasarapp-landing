@@ -40,8 +40,7 @@
       "plugins": ["typescript-sort-keys", "@typescript-eslint"],
       "extends": [
         "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:tailwindcss/recommended"
+        "plugin:@typescript-eslint/recommended"
       ],
       "rules": {
         "require-await": "off",

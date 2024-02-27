@@ -1,48 +1,96 @@
 import { ReactNode } from "react";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { Menu } from "@mui/icons-material";
 import clsx from "clsx";
-import { Inter } from "next/font/google";
+import { cookies } from "next/headers";
+import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-import { ThemeWrapper } from "@/features/theme";
+import "normalize.css";
 
 import { Locale, SUPPORTED_LOCALES } from "@/services/internationalization";
 
-const inter = Inter({ subsets: ["latin"] });
+import { ThemeToggler } from "@/components/ThemeToggler";
 
-type LocaleLayoutProps = {
-  children: ReactNode;
-  params: { locale: Locale };
+import {
+  AppBar,
+  Box,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@/ui-kit/components";
+import type { Mode } from "@/ui-kit/theme";
+import { font, THEME_MODE_COOKIES_KEY, ThemeProvider } from "@/ui-kit/theme";
+
+import styles from "./layout.module.scss";
+
+interface LayoutHeaderProps {
+  defaultMode: Mode;
+}
+const LayoutHeader = ({ defaultMode }: LayoutHeaderProps) => {
+  const t = useTranslations("navigation");
+
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" elevation={0}>
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label={t("menu")}
+            sx={{ mr: 2 }}
+          >
+            <Menu />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            News
+          </Typography>
+          <Box sx={{ justifySelf: "flex-end" }}>
+            <ThemeToggler defaultMode={defaultMode} />
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 };
 
-export function generateStaticParams(): Array<LocaleLayoutProps["params"]> {
-  return SUPPORTED_LOCALES.map((locale) => ({ locale }));
+interface LocaleLayoutProps {
+  children: ReactNode;
+  params: { locale: Locale };
 }
 
-export async function generateMetadata({
+const LocaleLayout = ({ children, params: { locale } }: LocaleLayoutProps) => {
+  // Enable static rendering
+  unstable_setRequestLocale(locale);
+
+  const cookiesList = cookies();
+  const defaultMode = (cookiesList.get(THEME_MODE_COOKIES_KEY)?.value ||
+    "system") as Mode;
+
+  return (
+    <html lang={locale} data-mui-color-scheme={defaultMode}>
+      <ThemeProvider defaultMode={defaultMode}>
+        <body className={clsx(font.className, styles.body)}>
+          <LayoutHeader defaultMode={defaultMode} />
+          {children}
+        </body>
+      </ThemeProvider>
+    </html>
+  );
+};
+
+export const generateStaticParams = (): Array<LocaleLayoutProps["params"]> => {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }));
+};
+
+export const generateMetadata = async ({
   params: { locale },
-}: Omit<LocaleLayoutProps, "children">) {
+}: Omit<LocaleLayoutProps, "children">) => {
   const t = await getTranslations({ locale });
 
   return {
     title: t("dashboard.quasar_app_group"),
   };
-}
+};
 
-export default async function LocaleLayout({
-  children,
-  params: { locale },
-}: LocaleLayoutProps) {
-  // Enable static rendering
-  unstable_setRequestLocale(locale);
-
-  return (
-    <html className="h-full" lang={locale}>
-      <body className={clsx(inter.className, "flex h-full flex-col")}>
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeWrapper>{children}</ThemeWrapper>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
-  );
-}
+export default LocaleLayout;
