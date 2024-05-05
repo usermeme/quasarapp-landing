@@ -1,6 +1,8 @@
 {
+  "about": "About",
   "c_qt_deployer": "CQtDeployer",
+  "contacts": "Contacts",
   "heart": "Heart",
-  "main": "Main",
-  "menu": "Menu"
+  "menu": "Menu",
+  "projects": "Our open-source projects"
 }

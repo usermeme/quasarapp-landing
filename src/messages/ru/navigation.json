@@ -1,6 +1,8 @@
 {
+  "about": "О нас",
   "c_qt_deployer": "CQtDeployer",
+  "contacts": "Контакты",
   "heart": "Heart",
-  "main": "Главная",
-  "menu": "Меню"
+  "menu": "Меню",
+  "projects": "Наши open-source проекты"
 }

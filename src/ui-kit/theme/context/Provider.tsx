@@ -13,6 +13,7 @@ import { ThemeProviderProps } from "./@types";
 const experimentalTheme = experimental_extendTheme({
   colorSchemes: { dark: DARK_PALETTE, light: LIGHT_PALETTE },
   cssVarPrefix: "",
+  spacing: 4,
   typography: { fontFamily: font.style.fontFamily },
 });
 

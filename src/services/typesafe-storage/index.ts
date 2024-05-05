@@ -1,0 +1,1 @@
+export { typesafeLocalStorage } from "./TypesafeStorage";

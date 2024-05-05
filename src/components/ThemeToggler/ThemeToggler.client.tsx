@@ -2,10 +2,16 @@
 
 import { FC, useEffect, useState } from "react";
 
-import { Stack, Switch, Typography } from "@/ui-kit/components";
-import { useColorScheme } from "@/ui-kit/theme";
+import { FormControlLabel, Switch } from "@/ui-kit/components";
+import { LightMode, NightsStay } from "@/ui-kit/icons";
+import { Mode, useColorScheme } from "@/ui-kit/theme";
 
-import type { ClientThemeTogglerProps } from "./@types";
+import styles from "./ThemeToggler.module.scss";
+
+interface ClientThemeTogglerProps {
+  label: string;
+  defaultMode: Mode;
+}
 
 export const ClientThemeToggler: FC<ClientThemeTogglerProps> = ({
   defaultMode,
@@ -24,9 +30,16 @@ export const ClientThemeToggler: FC<ClientThemeTogglerProps> = ({
   }, [mode, systemMode]);
 
   return (
-    <Stack sx={{ alignItems: "center", flexDirection: "row" }}>
-      <Switch checked={checked} onChange={onToggle} />
-      <Typography>{label}</Typography>
-    </Stack>
+    <FormControlLabel
+      control={
+        <Switch
+          checked={checked}
+          onChange={onToggle}
+          icon={<LightMode className={styles.thumb} />}
+          checkedIcon={<NightsStay className={styles.thumb} />}
+        />
+      }
+      label={label}
+    />
   );
 };

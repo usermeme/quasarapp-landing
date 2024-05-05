@@ -1,0 +1,19 @@
+.progress_bar {
+  position: fixed;
+  top: 0;
+  height: 4px;
+  background-color: var(--palette-info-dark);
+  z-index: calc(var(--zIndex-drawer) + 1);
+  width: 0%;
+}
+
+.status_started {
+  width: 85%;
+  transition: width 20s cubic-bezier(0, 1.13, 0.83, 0.67);
+}
+
+.status_completed {
+  width: 100%;
+  opacity: 0;
+  transition: width 0.3s linear, opacity 0.75s;
+}

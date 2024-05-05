@@ -1,0 +1,12 @@
+{
+  "accept_all": "Принять все",
+  "accept_selected": "Принять выбранное",
+  "analytics_consent_description": "Согласие на сбор и анализ данных для отслеживания поведения пользователей на сайте.",
+  "analytics_consent_title": "Аналитика",
+  "consent_manager_description": "Мы используем файлы cookie, чтобы предложить вам лучший опыт. Подробнее см. <innerLink>Уведомление о файлах cookie</innerLink>",
+  "consent_manager_header": "Установите свои предпочтения относительно файлов cookie",
+  "functional_consent_description": "Согласие на обработку персональных данных, необходимых для работы сайта.",
+  "functional_consent_title": "Функциональные",
+  "more_options": "Дополнительные опции",
+  "reject_all": "Отклонить все"
+}

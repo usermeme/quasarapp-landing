@@ -1,10 +1,11 @@
+"use client";
 import type { FC } from "react";
 
 import { Box } from "@/ui-kit/components";
 
 import type { RenderTreeItem, RenderTreeProps } from "./@types";
 import { RenderTreeCode } from "./components/RenderTreeCode";
-import { RenderTreeHeadline } from "./components/RenderTreeHeadline";
+import { RenderTreeList } from "./components/RenderTreeList";
 import { RenderTreeParagraph } from "./components/RenderTreeParagraph";
 
 export const RenderTree: FC<RenderTreeProps> = ({ data }) => {
@@ -14,11 +15,11 @@ export const RenderTree: FC<RenderTreeProps> = ({ data }) => {
 const renderItem = (item: RenderTreeItem) => {
   switch (item.type) {
     case "code":
-      return <RenderTreeCode {...item} />;
-    case "headline":
-      return <RenderTreeHeadline {...item} />;
+      return <RenderTreeCode {...item} key={item.key} />;
     case "paragraph":
-      return <RenderTreeParagraph {...item} />;
+      return <RenderTreeParagraph {...item} key={item.key} />;
+    case "list":
+      return <RenderTreeList {...item} key={item.key} />;
     default:
       return null;
   }

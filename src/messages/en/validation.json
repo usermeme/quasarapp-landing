@@ -1,0 +1,5 @@
+{
+  "not_valid_email": "The email is not valid",
+  "required": "This field is required",
+  "positive_number": "The value must be greater than or equal to 1"
+}

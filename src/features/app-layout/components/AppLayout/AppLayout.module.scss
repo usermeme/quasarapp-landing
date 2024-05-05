@@ -1,0 +1,28 @@
+@import "@/styles/mixins/breakpoints";
+
+.wrapper {
+  --drawer-width: 320px;
+}
+
+.top_stack {
+  top: 0;
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  height: var(--header-height);
+  z-index: 1;
+}
+
+.main {
+  min-height: var(--main-height);
+  background-color: var(--palette-background-default);
+}
+
+@include breakpointUp("md") {
+  .main {
+    margin-left: var(--drawer-width);
+  }
+  .app_bar_menu {
+    width: var(--drawer-width) !important;
+  }
+}

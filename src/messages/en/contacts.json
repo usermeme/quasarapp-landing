@@ -1,0 +1,15 @@
+{
+  "contact_us_headline": "Contact Us",
+  "contact_us_paragraph": "Fill out the form below to send us a message:",
+  "subject": "Subject:",
+  "welcome_section_headline": "Welcome to QuasarApps",
+  "welcome_section_list_description": "Here you will find all the necessary information to contact us:",
+  "welcome_section_list_item_1": "<b>Telegram bot</b>: <link>https://t.me/QuasarAppManagerBot</link>",
+  "welcome_section_list_item_2": "<b>Email</b>: <email></email>",
+  "welcome_section_list_item_3": "<b>Linkedin</b>: <link>https://www.linkedin.com/in/andrei-yankovich-b51a77191/</link>",
+  "welcome_section_list_item_4": "<b>GitHub</b>: <link>https://github.com/QuasarApp</link>",
+  "welcome_section_paragraph_1": "We are excited that you are interested in our company!",
+  "your_email": "Your Email:",
+  "your_message": "Your Message:",
+  "your_name": "Your Name:"
+}

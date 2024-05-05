@@ -1,0 +1,19 @@
+@mixin visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@mixin visually-visible {
+  clip: unset;
+  clip-path: unset;
+  height: unset;
+  overflow: unset;
+  position: unset;
+  white-space: unset;
+  width: unset;
+}

@@ -1,0 +1,25 @@
+@import "./mixins//breakpoints.scss";
+
+:root {
+  --screen-height: 100dvh;
+  --header-height: 56px;
+  --main-height: calc(var(--screen-height) - var(--header-height));
+
+  --gap: 16px;
+  --page-grid-gutter: 16px;
+}
+
+@include breakpointUp("sm") {
+  :root {
+    --header-height: 64px;
+    --main-height: calc(var(--screen-height) - var(--header-height));
+
+    --page-grid-gutter: 24px;
+  }
+}
+
+@include breakpointUp("md") {
+  :root {
+    --page-grid-gutter: 32px;
+  }
+}

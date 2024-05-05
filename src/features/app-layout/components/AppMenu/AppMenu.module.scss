@@ -1,0 +1,14 @@
+@import "@/styles/mixins/breakpoints";
+
+.desktop_drawer {
+  display: none;
+}
+
+@include breakpointUp("md") {
+  .mobile_drawer {
+    display: none;
+  }
+  .desktop_drawer {
+    display: block;
+  }
+}

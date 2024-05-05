@@ -1,6 +1,10 @@
+"use client";
 import type { FC, ReactNode } from "react";
 
-import { Typography, type TypographyProps } from "@/ui-kit/components";
+import {
+  RenderTreeInlineText,
+  type RenderTreeInlineTextProps,
+} from "./RenderTreeInlineText";
 
 export interface RenderTreeParagraphType {
   data: ReactNode;
@@ -8,12 +12,20 @@ export interface RenderTreeParagraphType {
 }
 
 type RenderTreeParagraphProps = Omit<RenderTreeParagraphType, "type"> &
-  TypographyProps;
+  RenderTreeInlineTextProps;
 
-export const RenderTreeParagraph: FC<RenderTreeParagraphProps> = ({ data }) => {
+export const RenderTreeParagraph: FC<RenderTreeParagraphProps> = ({
+  data,
+  sx,
+  ...rest
+}) => {
   return (
-    <Typography sx={{ mb: 2 }} component="p">
-      {data}
-    </Typography>
+    <RenderTreeInlineText
+      sx={{ mb: 2, whiteSpace: "pre-line", ...sx }}
+      component="p"
+      data={data}
+      textAlign="justify"
+      {...rest}
+    />
   );
 };

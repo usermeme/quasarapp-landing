@@ -1,6 +1,6 @@
-import { FC, useCallback } from "react";
+import type { FC } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { qtcreatorDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import copy from "copy-to-clipboard";
 
 import { Box, BoxProps, IconButton } from "@/ui-kit/components";
@@ -16,22 +16,30 @@ export interface RenderTreeCodeType {
 
 type RenderTreeCodeProps = Omit<RenderTreeCodeType, "type"> & BoxProps;
 
+const CUSTOM_STYLE = { borderRadius: "4px", padding: "28px 16px" } as const;
 export const RenderTreeCode: FC<RenderTreeCodeProps> = ({
   data,
   language,
   ...rest
 }) => {
-  const copyContent = useCallback(() => copy(data), [data]);
+  const copyContent = () => copy(data);
+
   return (
-    <Box position="relative" padding={4} {...rest}>
+    <Box position="relative" {...rest}>
       <IconButton
-        sx={{ position: "absolute", right: 4, top: 4 }}
+        size="small"
+        color="primary"
+        sx={{ position: "absolute", right: 0, top: 0 }}
         onClick={copyContent}
       >
-        <ContentCopy />
+        <ContentCopy fontSize="small" />
       </IconButton>
 
-      <SyntaxHighlighter language={language} style={docco}>
+      <SyntaxHighlighter
+        customStyle={CUSTOM_STYLE}
+        language={language}
+        style={qtcreatorDark}
+      >
         {data}
       </SyntaxHighlighter>
     </Box>

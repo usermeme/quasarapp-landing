@@ -1,34 +1,12 @@
-import createMiddleware from "next-intl/middleware";
+import { withI18n } from "@/features/internationalization";
 
-import {
-  DEFUALT_LOCALE,
-  localePrefix,
-  SUPPORTED_LOCALES,
-} from "@/services/internationalization";
+import { stackMiddlewares } from "@/utils/middleware";
 
-export default createMiddleware({
-  // Used when no locale matches
-  defaultLocale: DEFUALT_LOCALE,
-
-  localePrefix,
-  // A list of all locales that are supported
-  locales: SUPPORTED_LOCALES,
-});
+// withI18n should be last
+const middlewares = [withI18n];
+export default stackMiddlewares(middlewares);
 
 export const config = {
-  // Match only internationalized pathnames
-  matcher: [
-    // Enable a redirect to a matching locale at the root
-    "/",
-
-    // Set a cookie to remember the previous locale for
-    // all requests that have a locale prefix
-    // TODO: use here SUPPORTED_LOCALES after fix the issue
-    // https://github.com/vercel/next.js/issues/56398
-    "/(ru|en)/:path*",
-
-    // Enable redirects that add missing locales
-    // (e.g. `/pathnames` -> `/en/pathnames`)
-    "/((?!_next|_vercel|.*\\..*).*)",
-  ],
+  runtime: "experimental-edge", // for Edge API Routes only
+  unstable_allowDynamic: ["/node_modules/@mui/utils/ponyfillGlobal/**"],
 };

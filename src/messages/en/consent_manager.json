@@ -1,0 +1,12 @@
+{
+  "accept_all": "Accept all",
+  "accept_selected": "Accept Selected",
+  "analytics_consent_description": "Consent to collect and analyze data to track user behavior on the website.",
+  "analytics_consent_title": "Analytics",
+  "consent_manager_description": "We use cookies to offer you a better experience. See <innerLink>Cookie Notice</innerLink> for details",
+  "consent_manager_header": "Set your cookie preferences",
+  "functional_consent_description": "Consent to process personal data that is necessary for the website to function.",
+  "functional_consent_title": "Functional",
+  "more_options": "More Options",
+  "reject_all": "Reject all"
+}

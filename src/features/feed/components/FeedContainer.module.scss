@@ -1,0 +1,8 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 680px;
+  padding: var(--gap);
+  gap: var(--gap);
+  perspective: 1px;
+}

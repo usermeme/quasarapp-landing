@@ -1,18 +1,19 @@
+"use client";
 import { FC, ReactNode } from "react";
 
-import { Typography } from "@/ui-kit/components";
+import { Typography, TypographyProps } from "@/ui-kit/components";
 
-export interface RenderTreeTextType {
+export interface RenderTreeInlineTextType {
   data: ReactNode;
   weight?: "bold" | "regular";
   type: "inline-text";
 }
-type RenderTreeTextProps = Omit<RenderTreeTextType, "type">;
-export const RenderTreeInlineText: FC<RenderTreeTextProps> = ({
+export type RenderTreeInlineTextProps = Omit<RenderTreeInlineTextType, "type"> &
+  TypographyProps;
+
+export const RenderTreeInlineText: FC<RenderTreeInlineTextProps> = ({
   data,
-  weight,
+  ...rest
 }) => {
-  return (
-    <Typography fontWeight={weight === "bold" ? 700 : 400}>{data}</Typography>
-  );
+  return <Typography {...rest}>{data}</Typography>;
 };
